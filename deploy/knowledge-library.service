@@ -1,0 +1,34 @@
+[Unit]
+Description=Personal Knowledge Library Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=telegrambot
+Group=telegrambot
+WorkingDirectory=/opt/knowledge-library
+EnvironmentFile=/opt/knowledge-library/.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=DATA_DIR=/var/lib/knowledge-library
+Environment=TIMEZONE=Africa/Addis_Ababa
+ExecStart=/opt/knowledge-library/venv/bin/python /opt/knowledge-library/main.py
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGTERM
+SyslogIdentifier=knowledge-library
+StandardOutput=journal
+StandardError=journal
+UMask=0077
+
+# Hardening: the code is read-only; only the data directory is writable.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/knowledge-library
+
+[Install]
+WantedBy=multi-user.target

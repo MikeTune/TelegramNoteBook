@@ -1,0 +1,7 @@
+# Runtime dependencies (Python 3.10+)
+python-telegram-bot>=21.0,<23
+python-dotenv>=1.0,<2
+APScheduler>=3.10,<4
+reportlab>=4.0,<6
+Pillow>=10.0,<13
+tzdata>=2024.1

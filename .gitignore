@@ -1,0 +1,23 @@
+# Secrets and personal data — never commit these.
+.env
+
+# Runtime data
+knowledge_library.db
+knowledge_library.db-journal
+knowledge_library.db-wal
+knowledge_library.db-shm
+document_photos/
+exports/
+backups/
+verification/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Logs / OS files
+*.log
+.DS_Store
